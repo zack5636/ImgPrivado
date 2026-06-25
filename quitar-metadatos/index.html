@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Quita metadatos EXIF de imágenes generando una copia limpia en tu navegador." />
+    <meta name="theme-color" content="#00bcd4" />
+    <link rel="canonical" href="https://imgprivado.xyz/quitar-metadatos/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/tools.css" />
+    <link rel="stylesheet" href="/src/styles/ads.css" />
+    <title>Quitar metadatos de imagen gratis y privado - imgprivado</title>
+  </head>
+  <body data-page="image-tool" data-tool="metadata">
+    <div data-component="header"></div>
+    <main>
+      <div class="container"><nav class="breadcrumb" aria-label="Miga de pan"><a href="/">Inicio</a><span aria-hidden="true">&gt;</span><span>Quitar metadatos</span></nav></div>
+      <section class="tool-hero">
+        <div class="container tool-hero__inner">
+          <div><span class="pill">100% privado</span><h1>Quitar metadatos</h1><p>Lee EXIF básico y descarga una copia limpia creada desde Canvas, sin subir tu foto.</p></div>
+          <div class="image-mascot image-mascot--small" aria-hidden="true"><span class="image-mascot__sun"></span><span class="image-mascot__mountain image-mascot__mountain--back"></span><span class="image-mascot__mountain image-mascot__mountain--front"></span><span class="image-mascot__eye image-mascot__eye--left"></span><span class="image-mascot__eye image-mascot__eye--right"></span><span class="image-mascot__smile"></span></div>
+        </div>
+      </section>
+      <section class="tool-shell container">
+        <div class="tool-workspace">
+          <div class="tool-main">
+            <div class="dropzone" id="image-dropzone" tabindex="0" role="button" aria-label="Seleccionar imagen">
+              <input class="dropzone__input" id="image-input" type="file" accept="image/jpeg,image/png,image/webp" />
+              <span class="dropzone__icon">+</span><strong>Arrastra una imagen aquí</strong><span>o toca para elegir JPG, PNG o WebP</span>
+            </div>
+            <div id="alert-region" class="alert-region" aria-live="polite"></div>
+            <article id="selected-file" class="image-card" hidden></article>
+            <div id="tool-preview" class="tool-preview"></div>
+          </div>
+          <aside id="tool-options" class="options-panel" aria-label="Opciones de metadatos">
+            <div class="options-panel__header"><h2>Opciones</h2><span id="ready-status" class="status-chip">Sin imagen</span></div>
+            <div class="estimate-summary">La copia limpia se renderiza de nuevo en Canvas y se descarga sin EXIF.</div>
+            <button id="tool-action" class="button button--primary button--wide" type="button" disabled>Quitar metadatos</button>
+          </aside>
+        </div>
+      </section>
+      <div class="container"><div class="ad-slot ad-slot--leaderboard" data-format="728 x 90"></div></div>
+      <section class="content-section container">
+        <h2>Metadatos y privacidad</h2>
+        <p>Algunas fotos pueden incluir información de cámara, fecha u orientación. imgprivado genera una nueva imagen desde los píxeles visibles para limpiar esos datos.</p>
+      </section>
+    </main>
+    <div data-component="footer"></div>
+    <script type="module" src="/src/image-tool-page.js"></script>
+  </body>
+</html>

@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Por qué procesar imágenes en el navegador mejora la privacidad." />
+    <meta name="theme-color" content="#00bcd4" />
+    <link rel="canonical" href="https://imgprivado.xyz/blog/privacidad-imagenes-navegador/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <title>Privacidad de imágenes en el navegador - imgprivado</title>
+  </head>
+  <body>
+    <div data-component="header"></div>
+    <main>
+      <article class="article-shell container">
+        <span class="pill">Privacidad</span>
+        <h1>Por qué procesar imágenes en el navegador</h1>
+        <p>Muchas herramientas suben los archivos a un servidor para procesarlos. imgprivado sigue otro enfoque: usar APIs del navegador como Canvas para trabajar localmente.</p>
+        <h2>Tu archivo no sale del dispositivo</h2>
+        <p>El navegador abre la imagen, la dibuja en Canvas y genera una nueva descarga. No hay transferencia del archivo original a imgprivado.</p>
+        <h2>Menos fricción</h2>
+        <p>Sin registro ni espera de cola. El límite real suele ser la memoria disponible del navegador o del móvil.</p>
+        <h2>Más transparencia</h2>
+        <p>Las páginas son estáticas y las herramientas funcionan con JavaScript del lado del cliente.</p>
+        <p><a class="button button--primary" href="/como-funciona/">Ver cómo funciona</a></p>
+      </article>
+    </main>
+    <div data-component="footer"></div>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>

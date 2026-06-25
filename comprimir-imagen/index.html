@@ -1,0 +1,232 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="Comprime imágenes JPG, PNG y WebP en tu navegador. Sin subir archivos, sin registro y con descarga directa o ZIP."
+    />
+    <meta name="theme-color" content="#00bcd4" />
+    <link rel="canonical" href="https://imgprivado.xyz/comprimir-imagen/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="/favicon-32.png" sizes="32x32" />
+    <link rel="icon" href="/favicon-16.png" sizes="16x16" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+    <link rel="manifest" href="/site.webmanifest" />
+    <meta property="og:title" content="Comprimir imagen - imgprivado" />
+    <meta
+      property="og:description"
+      content="Reduce el peso de tus fotos sin perder calidad visible y sin subir nada a internet."
+    />
+    <meta property="og:image" content="https://imgprivado.xyz/og-image.png" />
+    <meta property="og:url" content="https://imgprivado.xyz/comprimir-imagen/" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&family=Quicksand:wght@600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/tools.css" />
+    <link rel="stylesheet" href="/src/styles/ads.css" />
+    <title>Comprimir imagen gratis y privado - imgprivado</title>
+  </head>
+  <body data-page="compress-image">
+    <div data-component="header"></div>
+    <main>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Miga de pan">
+          <a href="/">Inicio</a>
+          <span aria-hidden="true">&gt;</span>
+          <span>Comprimir imagen</span>
+        </nav>
+      </div>
+
+      <section class="tool-hero">
+        <div class="container tool-hero__inner">
+          <div>
+            <span class="pill">100% privado</span>
+            <h1>Comprimir imagen</h1>
+            <p>Reduce el peso de tus fotos sin perder calidad visible, sin subir nada a internet.</p>
+          </div>
+          <div class="image-mascot image-mascot--small" aria-hidden="true">
+            <span class="image-mascot__sun"></span>
+            <span class="image-mascot__mountain image-mascot__mountain--back"></span>
+            <span class="image-mascot__mountain image-mascot__mountain--front"></span>
+            <span class="image-mascot__eye image-mascot__eye--left"></span>
+            <span class="image-mascot__eye image-mascot__eye--right"></span>
+            <span class="image-mascot__smile"></span>
+          </div>
+        </div>
+      </section>
+
+      <section class="tool-shell container" aria-labelledby="compress-title">
+        <div class="tool-workspace">
+          <div class="tool-main">
+            <h2 id="compress-title" class="sr-only">Comprimir imágenes</h2>
+            <div
+              class="dropzone"
+              id="image-dropzone"
+              tabindex="0"
+              role="button"
+              aria-label="Seleccionar imágenes"
+            >
+              <input
+                class="dropzone__input"
+                id="image-input"
+                type="file"
+                accept="image/jpeg,image/png,image/webp"
+                multiple
+              />
+              <span class="dropzone__icon">+</span>
+              <strong>Arrastra tus imágenes aquí</strong>
+              <span>o toca para elegir JPG, PNG o WebP</span>
+            </div>
+
+            <div id="alert-region" class="alert-region" aria-live="polite"></div>
+
+            <div class="image-list-panel">
+              <div class="image-list-panel__header">
+                <p id="image-counter">0 imágenes · 0 KB en total</p>
+                <button class="ghost-button" id="clear-all" type="button" disabled>Limpiar todo</button>
+              </div>
+              <div id="image-list" class="image-list" aria-live="polite"></div>
+            </div>
+          </div>
+
+          <aside class="options-panel" aria-label="Opciones de compresión">
+            <div class="options-panel__header">
+              <h2>Opciones</h2>
+              <span id="ready-status" class="status-chip">Sin imágenes</span>
+            </div>
+
+            <label class="control-block" for="quality-range">
+              <span class="control-block__label">Calidad</span>
+              <span id="quality-value" class="control-block__value">80</span>
+              <input id="quality-range" type="range" min="1" max="100" value="80" />
+              <span class="control-block__hint">Menos calidad = más ligero</span>
+              <span class="control-block__hint control-block__hint--right">Más calidad = archivo más grande</span>
+            </label>
+
+            <fieldset class="control-block">
+              <legend>Formato de salida</legend>
+              <label class="radio-card">
+                <input type="radio" name="output-format" value="jpeg" checked />
+                <span>JPG</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="output-format" value="webp" />
+                <span>WebP</span>
+              </label>
+              <label class="radio-card">
+                <input type="radio" name="output-format" value="original" />
+                <span>Mantener original</span>
+              </label>
+            </fieldset>
+
+            <p id="format-warning" class="inline-warning" hidden>
+              Las imágenes JPG no soportan transparencia, el fondo se rellenará de blanco.
+            </p>
+
+            <label class="toggle-row">
+              <input id="resize-toggle" type="checkbox" />
+              <span>Redimensionar también</span>
+            </label>
+
+            <label id="resize-control" class="control-block" for="max-width" hidden>
+              <span class="control-block__label">Ancho máximo en px</span>
+              <input id="max-width" type="number" min="32" max="12000" step="1" value="1920" />
+            </label>
+
+            <div class="estimate-summary" id="estimate-summary">
+              Añade imágenes para ver el ahorro estimado.
+            </div>
+
+            <button id="compress-button" class="button button--primary button--wide" type="button" disabled>
+              Comprimir imágenes
+            </button>
+          </aside>
+        </div>
+      </section>
+
+      <div class="container">
+        <div class="ad-slot ad-slot--leaderboard" data-format="728 x 90"></div>
+      </div>
+
+      <section class="content-section container">
+        <h2>¿Cómo comprimir una imagen sin perder calidad visible?</h2>
+        <p>
+          La compresión con pérdida reduce información visual que normalmente cuesta poco
+          percibir. En una foto grande, bajar un poco la calidad puede recortar mucho peso sin
+          que el resultado se vea borroso o pixelado a simple vista.
+        </p>
+        <p>
+          JPG suele ser una buena opción para fotografías y capturas sin transparencias. WebP
+          puede conseguir archivos más pequeños con una calidad similar, sobre todo para publicar
+          imágenes en una web moderna.
+        </p>
+        <p>
+          PNG conserva transparencia y detalles duros, pero no siempre baja mucho de tamaño
+          cuando se mantiene como PNG. Si no necesitas transparencia, convertir a JPG o WebP puede
+          ahorrar bastante espacio.
+        </p>
+        <p>
+          Comprimir imágenes ayuda al enviarlas por WhatsApp o email, al subirlas a formularios
+          con límite de peso o al preparar contenido para una web más rápida.
+        </p>
+
+        <h2>Preguntas frecuentes</h2>
+        <details>
+          <summary>¿Cuánto se puede comprimir una imagen sin que se note?</summary>
+          <p>
+            En muchas fotos, una calidad entre 70 y 85 mantiene un aspecto muy parecido al
+            original y reduce mucho el tamaño. Depende del detalle, el ruido y el formato inicial.
+          </p>
+        </details>
+        <details>
+          <summary>¿JPG o WebP, cuál elegir?</summary>
+          <p>
+            JPG es muy compatible y funciona bien para fotos. WebP suele pesar menos y es ideal
+            para web o apps modernas.
+          </p>
+        </details>
+        <details>
+          <summary>¿Por qué a veces el PNG no se reduce mucho?</summary>
+          <p>
+            PNG usa compresión sin pérdida. Si el archivo ya estaba optimizado o tiene muchos
+            colores, puede haber poco margen sin cambiar de formato.
+          </p>
+        </details>
+        <details>
+          <summary>¿Hay límite de tamaño de archivo?</summary>
+          <p>
+            imgprivado no impone un límite propio. El límite práctico depende de la memoria y
+            potencia del navegador o móvil que estés usando.
+          </p>
+        </details>
+        <details>
+          <summary>¿Se pueden comprimir varias imágenes a la vez?</summary>
+          <p>
+            Sí. Puedes añadir varias imágenes; si comprimes más de una, se descargan juntas en un
+            archivo ZIP.
+          </p>
+        </details>
+        <details>
+          <summary>¿Funciona en el móvil?</summary>
+          <p>
+            Sí. La herramienta es responsive y procesa las imágenes directamente en el navegador
+            del móvil.
+          </p>
+        </details>
+
+        <div class="related-tools">
+          <h2>También te puede interesar</h2>
+          <p>Pronto añadiremos más herramientas privadas para redimensionar, recortar y convertir imágenes.</p>
+        </div>
+      </section>
+    </main>
+    <div data-component="footer"></div>
+    <script type="module" src="/src/tool-page.js"></script>
+  </body>
+</html>

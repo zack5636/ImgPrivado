@@ -1,0 +1,64 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="description" content="Redimensiona imágenes JPG, PNG y WebP en tu navegador, sin subir archivos." />
+    <meta name="theme-color" content="#00bcd4" />
+    <link rel="canonical" href="https://imgprivado.xyz/redimensionar-imagen/" />
+    <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="/src/styles/main.css" />
+    <link rel="stylesheet" href="/src/styles/tools.css" />
+    <link rel="stylesheet" href="/src/styles/ads.css" />
+    <title>Redimensionar imagen gratis y privado - imgprivado</title>
+  </head>
+  <body data-page="image-tool" data-tool="resize">
+    <div data-component="header"></div>
+    <main>
+      <div class="container">
+        <nav class="breadcrumb" aria-label="Miga de pan">
+          <a href="/">Inicio</a><span aria-hidden="true">&gt;</span><span>Redimensionar imagen</span>
+        </nav>
+      </div>
+      <section class="tool-hero">
+        <div class="container tool-hero__inner">
+          <div>
+            <span class="pill">100% privado</span>
+            <h1>Redimensionar imagen</h1>
+            <p>Cambia el tamaño en píxeles manteniendo la proporción, sin enviar tu foto a ningún servidor.</p>
+          </div>
+          <div class="image-mascot image-mascot--small" aria-hidden="true">
+            <span class="image-mascot__sun"></span><span class="image-mascot__mountain image-mascot__mountain--back"></span><span class="image-mascot__mountain image-mascot__mountain--front"></span><span class="image-mascot__eye image-mascot__eye--left"></span><span class="image-mascot__eye image-mascot__eye--right"></span><span class="image-mascot__smile"></span>
+          </div>
+        </div>
+      </section>
+      <section class="tool-shell container">
+        <div class="tool-workspace">
+          <div class="tool-main">
+            <div class="dropzone" id="image-dropzone" tabindex="0" role="button" aria-label="Seleccionar imagen">
+              <input class="dropzone__input" id="image-input" type="file" accept="image/jpeg,image/png,image/webp" />
+              <span class="dropzone__icon">+</span><strong>Arrastra una imagen aquí</strong><span>o toca para elegir JPG, PNG o WebP</span>
+            </div>
+            <div id="alert-region" class="alert-region" aria-live="polite"></div>
+            <article id="selected-file" class="image-card" hidden></article>
+            <div id="tool-preview" class="tool-preview"></div>
+          </div>
+          <aside id="tool-options" class="options-panel" aria-label="Opciones de redimensionado">
+            <div class="options-panel__header"><h2>Opciones</h2><span id="ready-status" class="status-chip">Sin imagen</span></div>
+            <label class="control-block" for="resize-width"><span class="control-block__label">Ancho en px</span><input id="resize-width" data-invalidates-tool type="number" min="1" value="1200" /></label>
+            <label class="control-block" for="resize-height"><span class="control-block__label">Alto en px</span><input id="resize-height" data-invalidates-tool type="number" min="1" value="800" /></label>
+            <label class="toggle-row"><input id="keep-ratio" data-invalidates-tool type="checkbox" checked /><span>Mantener proporción</span></label>
+            <button id="tool-action" class="button button--primary button--wide" type="button" disabled>Redimensionar imagen</button>
+          </aside>
+        </div>
+      </section>
+      <div class="container"><div class="ad-slot ad-slot--leaderboard" data-format="728 x 90"></div></div>
+      <section class="content-section container">
+        <h2>Redimensionar sin perder el control</h2>
+        <p>Reducir dimensiones ayuda cuando una web, formulario o perfil social pide un tamaño concreto. La copia se genera desde Canvas y el archivo original permanece intacto.</p>
+      </section>
+    </main>
+    <div data-component="footer"></div>
+    <script type="module" src="/src/image-tool-page.js"></script>
+  </body>
+</html>
